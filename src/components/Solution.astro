@@ -1,0 +1,143 @@
+---
+import type { Lang } from '../i18n/index';
+import { t } from '../i18n/index';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+---
+
+<section id="solution" class="py-28 bg-[#1C3D2E] relative overflow-hidden">
+  <!-- Aerial field lines background -->
+  <div class="absolute inset-0 pointer-events-none">
+    <svg class="w-full h-full opacity-5" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+      {Array.from({ length: 20 }).map((_, i) => (
+        <line x1="0" y1={i * 32} x2="1200" y2={i * 32} stroke="white" stroke-width="1"/>
+      ))}
+      {Array.from({ length: 30 }).map((_, i) => (
+        <line x1={i * 40} y1="0" x2={i * 40} y2="600" stroke="white" stroke-width="1"/>
+      ))}
+    </svg>
+
+    <!-- Aquifer wave animation -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 overflow-hidden opacity-20">
+      <div class="wave-animate flex" style="width: 200%;">
+        <svg viewBox="0 0 1200 80" class="w-1/2 h-32" preserveAspectRatio="none">
+          <path d="M0,40 C150,10 350,70 600,40 C850,10 1050,70 1200,40 L1200,80 L0,80 Z" fill="#3B55C0"/>
+        </svg>
+        <svg viewBox="0 0 1200 80" class="w-1/2 h-32" preserveAspectRatio="none">
+          <path d="M0,40 C150,10 350,70 600,40 C850,10 1050,70 1200,40 L1200,80 L0,80 Z" fill="#3B55C0"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- Text -->
+      <div>
+        <span data-aos="fade-down" class="inline-block text-[#5B75D0] text-xs font-semibold tracking-widest uppercase mb-4">
+          {tr.solution.tag}
+        </span>
+        <h2 data-aos="fade-up" class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+          {tr.solution.headline}
+        </h2>
+        <p data-aos="fade-up" data-aos-delay="100" class="text-lg text-white/70 leading-relaxed mb-10">
+          {tr.solution.description}
+        </p>
+
+        <ul class="space-y-4">
+          {tr.solution.points.map((point, i) => (
+            <li
+              data-aos="fade-right"
+              data-aos-delay={i * 100}
+              class="flex items-center gap-3 text-white/90"
+            >
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-[#3B55C0] flex items-center justify-center">
+                <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                </svg>
+              </span>
+              <span class="font-medium">{point}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Aquifer illustration -->
+      <div data-aos="fade-left" data-aos-delay="200" class="relative">
+        <div class="relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
+          <!-- Drone view field diagram -->
+          <div class="aspect-square max-w-sm mx-auto relative">
+            <svg viewBox="0 0 300 300" class="w-full h-full">
+              <!-- Sky/surface -->
+              <rect x="0" y="0" width="300" height="300" fill="transparent"/>
+
+              <!-- Field rows (drone view) -->
+              {Array.from({ length: 12 }).map((_, i) => (
+                <rect
+                  x="20"
+                  y={20 + i * 22}
+                  width="260"
+                  height="12"
+                  rx="2"
+                  fill={i % 2 === 0 ? '#2D5A3D' : '#4A8C5C'}
+                  opacity="0.8"
+                />
+              ))}
+
+              <!-- Irrigation channels -->
+              {Array.from({ length: 4 }).map((_, i) => (
+                <rect
+                  x={20 + i * 65}
+                  y="20"
+                  width="4"
+                  height="264"
+                  rx="2"
+                  fill="#3B55C0"
+                  opacity="0.6"
+                />
+              ))}
+
+              <!-- Water droplets animation -->
+              {Array.from({ length: 6 }).map((_, i) => (
+                <circle
+                  cx={42 + i * 45}
+                  cy={80 + (i % 3) * 60}
+                  r="4"
+                  fill="#5B75D0"
+                  opacity="0.8"
+                >
+                  <animate
+                    attributeName="cy"
+                    values={`${80 + (i % 3) * 60};${95 + (i % 3) * 60};${80 + (i % 3) * 60}`}
+                    dur={`${1.5 + i * 0.2}s`}
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="opacity"
+                    values="0.8;0.3;0.8"
+                    dur={`${1.5 + i * 0.2}s`}
+                    repeatCount="indefinite"
+                  />
+                </circle>
+              ))}
+
+              <!-- Underground aquifer -->
+              <rect x="0" y="270" width="300" height="30" fill="#3B55C0" opacity="0.3" rx="0"/>
+              <text x="150" y="288" text-anchor="middle" fill="white" font-size="9" font-family="Inter, sans-serif" opacity="0.7">
+                Acuífero Yrenda
+              </text>
+            </svg>
+
+            <!-- Pulse rings (water source) -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center">
+              <span class="animate-ping absolute w-16 h-16 rounded-full bg-[#3B55C0]/20"></span>
+              <span class="animate-ping absolute w-10 h-10 rounded-full bg-[#3B55C0]/30" style="animation-delay: 0.3s"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

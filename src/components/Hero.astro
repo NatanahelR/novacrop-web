@@ -1,0 +1,94 @@
+---
+import type { Lang } from '../i18n/index';
+import { t } from '../i18n/index';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#1C3D2E]">
+
+  <!-- Drone video background -->
+  <div class="absolute inset-0 z-0">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full h-full object-cover opacity-60"
+    >
+      <source src="/hero.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Dark gradient overlay -->
+  <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/30 via-transparent to-[#1C3D2E]/80"></div>
+
+  <!-- Animated drone lines (aerial view simulation) -->
+  <div class="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+    <div class="drone-lines absolute inset-0 opacity-10">
+      {Array.from({ length: 8 }).map((_, i) => (
+        <div
+          class="absolute h-px bg-gradient-to-r from-transparent via-white to-transparent w-full"
+          style={`top: ${12 + i * 12}%; animation: droneScan ${3 + i * 0.4}s ease-in-out infinite alternate; animation-delay: ${i * 0.3}s;`}
+        />
+      ))}
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-20 max-w-5xl mx-auto px-6 text-center text-white pt-24">
+    <div data-aos="fade-down" data-aos-delay="100">
+      <span class="inline-block bg-[#3B55C0]/80 backdrop-blur-sm text-white text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-6 border border-[#3B55C0]">
+        {tr.hero.tag}
+      </span>
+    </div>
+
+    <h1
+      data-aos="fade-up"
+      data-aos-delay="200"
+      class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 tracking-tight"
+    >
+      {tr.hero.headline}
+    </h1>
+
+    <p
+      data-aos="fade-up"
+      data-aos-delay="350"
+      class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed"
+    >
+      {tr.hero.sub}
+    </p>
+
+    <div data-aos="fade-up" data-aos-delay="500" class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="#contact"
+        class="bg-[#3B55C0] hover:bg-[#5B75D0] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#3B55C0]/30 hover:-translate-y-0.5"
+      >
+        {tr.hero.cta_primary}
+      </a>
+      <a
+        href="#solution"
+        class="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full border border-white/30 hover:border-white/60 transition-all duration-300"
+      >
+        {tr.hero.cta_secondary}
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2" data-aos="fade-up" data-aos-delay="800">
+      <div class="flex flex-col items-center gap-2 text-white/40">
+        <div class="w-px h-10 bg-gradient-to-b from-transparent to-white/40 animate-pulse"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes droneScan {
+    0% { transform: translateY(-8px) scaleX(0.6); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(8px) scaleX(1); opacity: 0; }
+  }
+</style>

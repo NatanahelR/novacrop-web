@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "problem": "El Problema",
+    "solution": "Solución",
+    "benefits": "Beneficios",
+    "why": "Por Qué Nosotros",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "tag": "Agricultura bajo riego — Paraguay",
+    "headline": "Producción agrícola que no depende del clima.",
+    "sub": "NOVACROP garantiza cosechas estables y predecibles usando el agua del Acuífero Yrenda. Menos riesgo, más rentabilidad.",
+    "cta_primary": "Hablar con un asesor",
+    "cta_secondary": "Conocer más"
+  },
+  "problem": {
+    "tag": "El problema",
+    "headline": "La agricultura tradicional juega a la ruleta con el clima.",
+    "description": "Sequías, lluvias irregulares y temporadas impredecibles destruyen cosechas enteras y con ellas, la rentabilidad de años. El agricultor moderno no puede darse ese lujo.",
+    "stats": [
+      { "value": "68", "unit": "%", "label": "de productores reportan pérdidas por clima al menos una vez cada 3 años" },
+      { "value": "40", "unit": "%", "label": "de reducción de rendimiento en años de sequía severa" },
+      { "value": "3x", "unit": "", "label": "más riesgo de inversión frente a sistemas de riego controlado" }
+    ]
+  },
+  "solution": {
+    "tag": "La solución",
+    "headline": "El agua que Paraguay tiene bajo sus pies.",
+    "description": "El Acuífero Yrenda es uno de los reservorios de agua subterránea más importantes de Sudamérica. NOVACROP lo aprovecha de forma sostenible para garantizar agua de riego todo el año, independientemente de las lluvias.",
+    "points": [
+      "Riego controlado y eficiente todo el año",
+      "Independencia total de las lluvias",
+      "Tecnología de irrigación de precisión",
+      "Uso sostenible del acuífero"
+    ]
+  },
+  "benefits": {
+    "tag": "Beneficios",
+    "headline": "Producir sin incertidumbre. Invertir con seguridad.",
+    "items": [
+      {
+        "icon": "shield",
+        "title": "Estabilidad productiva",
+        "description": "Cosechas predecibles sin depender de las condiciones climáticas. Tu planificación tiene base real."
+      },
+      {
+        "icon": "trending-up",
+        "title": "Mayor rendimiento",
+        "description": "El riego controlado optimiza cada hectárea. Más kilos por superficie, menos desperdicio de recursos."
+      },
+      {
+        "icon": "calendar",
+        "title": "Producción 365 días",
+        "description": "Sin temporadas muertas. Cultivos durante todo el año para maximizar el retorno de tu inversión."
+      },
+      {
+        "icon": "dollar-sign",
+        "title": "Rentabilidad calculable",
+        "description": "Inversores y productores pueden proyectar retornos reales. El agua garantizada elimina la variable más crítica."
+      }
+    ]
+  },
+  "why": {
+    "tag": "Por qué NOVACROP",
+    "headline": "Diferente desde la raíz.",
+    "items": [
+      {
+        "title": "Recurso hídrico estratégico",
+        "description": "Acceso directo al Acuífero Yrenda, uno de los más grandes de la región. No dependemos de lluvia ni de infraestructura hídrica externa."
+      },
+      {
+        "title": "Paraguay como ventaja competitiva",
+        "description": "Tierras productivas, costos operativos competitivos y un acuífero de clase mundial. Una combinación difícil de superar."
+      },
+      {
+        "title": "Enfoque en resultados económicos",
+        "description": "No solo hablamos de agricultura — hablamos de rentabilidad. Cada decisión está orientada al retorno del inversor y del productor."
+      },
+      {
+        "title": "Tecnología aplicada al campo",
+        "description": "Sistemas de riego de precisión, monitoreo y gestión de cultivos con foco en eficiencia y trazabilidad."
+      }
+    ]
+  },
+  "contact": {
+    "tag": "Contacto",
+    "headline": "¿Querés saber cómo NOVACROP puede trabajar con vos?",
+    "description": "Completá el formulario y un asesor se va a comunicar con vos para entender tu situación y presentarte nuestra propuesta.",
+    "form": {
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "company": "Empresa / Organización",
+      "role": "Rol",
+      "role_options": ["Productor agrícola", "Inversor", "Empresa del sector", "Otro"],
+      "message": "¿Cómo podemos ayudarte?",
+      "submit": "Enviar mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado! Te contactamos pronto.",
+      "error": "Hubo un error. Intentá de nuevo."
+    }
+  },
+  "footer": {
+    "tagline": "Agricultura estable. Inversión segura.",
+    "country": "Paraguay",
+    "rights": "Todos los derechos reservados."
+  }
+}

@@ -1,0 +1,76 @@
+---
+import type { Lang } from '../i18n/index';
+import { t } from '../i18n/index';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+---
+
+<section id="problem" class="py-28 bg-white relative overflow-hidden">
+  <!-- Subtle grid bg -->
+  <div class="absolute inset-0 field-grid opacity-[0.03]"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span data-aos="fade-down" class="inline-block text-[#3B55C0] text-xs font-semibold tracking-widest uppercase mb-4">
+        {tr.problem.tag}
+      </span>
+      <h2 data-aos="fade-up" class="text-3xl md:text-5xl font-extrabold text-[#1C3D2E] mb-6 leading-tight">
+        {tr.problem.headline}
+      </h2>
+      <p data-aos="fade-up" data-aos-delay="100" class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+        {tr.problem.description}
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {tr.problem.stats.map((stat, i) => (
+        <div
+          data-aos="fade-up"
+          data-aos-delay={i * 120}
+          class="text-center bg-[#F7FAF8] rounded-2xl p-10 border border-[#1C3D2E]/8 hover:border-[#3B55C0]/30 transition-colors group"
+        >
+          <div class="flex items-end justify-center gap-1 mb-3">
+            <span
+              class="counter-value text-6xl font-extrabold text-[#1C3D2E] group-hover:text-[#3B55C0] transition-colors"
+              data-target={stat.value}
+            >
+              0
+            </span>
+            <span class="text-3xl font-bold text-[#3B55C0] pb-1">{stat.unit}</span>
+          </div>
+          <p class="text-sm text-gray-500 leading-snug">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function animateCounter(el: Element) {
+    const target = parseInt(el.getAttribute('data-target') || '0', 10);
+    if (isNaN(target)) return;
+    let current = 0;
+    const duration = 1800;
+    const step = Math.ceil(target / (duration / 16));
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = current.toString();
+      if (current >= target) clearInterval(timer);
+    }, 16);
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('[data-target]').forEach(animateCounter);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const section = document.getElementById('problem');
+  if (section) observer.observe(section);
+</script>

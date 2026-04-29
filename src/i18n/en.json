@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "problem": "The Problem",
+    "solution": "Solution",
+    "benefits": "Benefits",
+    "why": "Why Us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tag": "Irrigated Agriculture — Paraguay",
+    "headline": "Crop production that doesn't depend on the weather.",
+    "sub": "NOVACROP delivers stable, predictable harvests using water from the Yrenda Aquifer. Less risk, more profitability.",
+    "cta_primary": "Talk to an advisor",
+    "cta_secondary": "Learn more"
+  },
+  "problem": {
+    "tag": "The problem",
+    "headline": "Traditional farming plays roulette with the weather.",
+    "description": "Droughts, irregular rainfall, and unpredictable seasons destroy entire harvests — and with them, years of profitability. Modern agricultural businesses can't afford that.",
+    "stats": [
+      { "value": "68", "unit": "%", "label": "of producers report climate-related losses at least once every 3 years" },
+      { "value": "40", "unit": "%", "label": "average yield reduction during severe drought years" },
+      { "value": "3x", "unit": "", "label": "higher investment risk compared to controlled irrigation systems" }
+    ]
+  },
+  "solution": {
+    "tag": "The solution",
+    "headline": "The water Paraguay has beneath its feet.",
+    "description": "The Yrenda Aquifer is one of South America's most important underground water reserves. NOVACROP uses it sustainably to guarantee year-round irrigation water, regardless of rainfall.",
+    "points": [
+      "Controlled, efficient irrigation all year long",
+      "Full independence from rainfall",
+      "Precision irrigation technology",
+      "Sustainable aquifer management"
+    ]
+  },
+  "benefits": {
+    "tag": "Benefits",
+    "headline": "Produce without uncertainty. Invest with confidence.",
+    "items": [
+      {
+        "icon": "shield",
+        "title": "Productive stability",
+        "description": "Predictable harvests regardless of climate conditions. Your planning has a real foundation."
+      },
+      {
+        "icon": "trending-up",
+        "title": "Higher yields",
+        "description": "Controlled irrigation optimizes every hectare. More output per area, less resource waste."
+      },
+      {
+        "icon": "calendar",
+        "title": "365-day production",
+        "description": "No dead seasons. Year-round cultivation to maximize the return on your investment."
+      },
+      {
+        "icon": "dollar-sign",
+        "title": "Calculable profitability",
+        "description": "Investors and producers can project real returns. Guaranteed water eliminates the most critical variable."
+      }
+    ]
+  },
+  "why": {
+    "tag": "Why NOVACROP",
+    "headline": "Different from the root.",
+    "items": [
+      {
+        "title": "Strategic water resource",
+        "description": "Direct access to the Yrenda Aquifer, one of the largest in the region. We don't rely on rainfall or external water infrastructure."
+      },
+      {
+        "title": "Paraguay as a competitive advantage",
+        "description": "Productive land, competitive operating costs, and a world-class aquifer. A hard combination to beat."
+      },
+      {
+        "title": "Economic results focus",
+        "description": "We don't just talk agriculture — we talk profitability. Every decision is oriented toward investor and producer returns."
+      },
+      {
+        "title": "Technology applied to the field",
+        "description": "Precision irrigation systems, crop monitoring and management focused on efficiency and traceability."
+      }
+    ]
+  },
+  "contact": {
+    "tag": "Contact",
+    "headline": "Want to know how NOVACROP can work with you?",
+    "description": "Fill out the form and an advisor will reach out to understand your situation and present our proposal.",
+    "form": {
+      "name": "Full name",
+      "email": "Email address",
+      "company": "Company / Organization",
+      "role": "Role",
+      "role_options": ["Agricultural producer", "Investor", "Agro sector company", "Other"],
+      "message": "How can we help you?",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent! We'll be in touch soon.",
+      "error": "Something went wrong. Please try again."
+    }
+  },
+  "footer": {
+    "tagline": "Stable agriculture. Safe investment.",
+    "country": "Paraguay",
+    "rights": "All rights reserved."
+  }
+}

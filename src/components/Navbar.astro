@@ -1,0 +1,114 @@
+---
+import type { Lang } from '../i18n/index';
+import { t, getAlternateLang } from '../i18n/index';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+const altLang = getAlternateLang(lang);
+---
+
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-400">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Logo: blanco sobre hero, colores normales al scrollear -->
+    <a href={`/${lang}`} class="flex items-center gap-3 shrink-0">
+      <img
+        id="nav-logo"
+        src="/logo.png"
+        alt="NovaCrop"
+        class="h-10 w-auto transition-all duration-400"
+        style="filter: brightness(0) invert(1);"
+      />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#problem"  class="nav-link text-sm font-medium text-white hover:text-white/70 transition-colors">{tr.nav.problem}</a>
+      <a href="#solution" class="nav-link text-sm font-medium text-white hover:text-white/70 transition-colors">{tr.nav.solution}</a>
+      <a href="#benefits" class="nav-link text-sm font-medium text-white hover:text-white/70 transition-colors">{tr.nav.benefits}</a>
+      <a href="#why"      class="nav-link text-sm font-medium text-white hover:text-white/70 transition-colors">{tr.nav.why}</a>
+
+      <a
+        href={`/${altLang}`}
+        class="lang-btn text-sm font-semibold text-white/80 hover:text-white border border-white/40 hover:border-white rounded-full px-3 py-1 transition-all"
+      >
+        {altLang.toUpperCase()}
+      </a>
+
+      <a
+        href="#contact"
+        class="cta-btn text-sm font-semibold bg-[#3B55C0] text-white px-5 py-2.5 rounded-full hover:bg-[#5B75D0] transition-colors"
+      >
+        {tr.nav.contact}
+      </a>
+    </nav>
+
+    <!-- Mobile menu button -->
+    <button id="menu-btn" class="md:hidden text-white" aria-label="Menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg px-6 pb-6 border-t border-gray-100">
+    <nav class="flex flex-col gap-4 pt-4">
+      <a href="#problem"  class="mobile-link text-[#1C3D2E] font-medium">{tr.nav.problem}</a>
+      <a href="#solution" class="mobile-link text-[#1C3D2E] font-medium">{tr.nav.solution}</a>
+      <a href="#benefits" class="mobile-link text-[#1C3D2E] font-medium">{tr.nav.benefits}</a>
+      <a href="#why"      class="mobile-link text-[#1C3D2E] font-medium">{tr.nav.why}</a>
+      <a href={`/${altLang}`} class="text-[#1C3D2E]/60 font-medium">{altLang.toUpperCase()}</a>
+      <a href="#contact" class="bg-[#3B55C0] text-white text-center px-5 py-3 rounded-full font-semibold">{tr.nav.contact}</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const navbar  = document.getElementById('navbar')!;
+  const logo    = document.getElementById('nav-logo')!;
+  const menuBtn = document.getElementById('menu-btn')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  const navLinks = navbar.querySelectorAll<HTMLAnchorElement>('.nav-link');
+  const langBtn  = navbar.querySelector<HTMLAnchorElement>('.lang-btn')!;
+
+  function applyScrolled(scrolled: boolean) {
+    if (scrolled) {
+      // White navbar
+      navbar.classList.add('bg-white', 'shadow-md');
+      navbar.classList.remove('bg-transparent');
+      logo.style.filter = 'none';
+      navLinks.forEach(l => {
+        l.classList.replace('text-white', 'text-[#1C3D2E]');
+        l.classList.replace('hover:text-white/70', 'hover:text-[#3B55C0]');
+      });
+      if (langBtn) {
+        langBtn.classList.replace('text-white/80', 'text-[#1C3D2E]');
+        langBtn.classList.replace('text-white', 'text-[#1C3D2E]');
+        langBtn.classList.replace('border-white/40', 'border-[#1C3D2E]/30');
+        langBtn.classList.replace('hover:border-white', 'hover:border-[#1C3D2E]');
+      }
+      menuBtn.classList.replace('text-white', 'text-[#1C3D2E]');
+    } else {
+      // Transparent navbar over hero
+      navbar.classList.remove('bg-white', 'shadow-md');
+      logo.style.filter = 'brightness(0) invert(1)';
+      navLinks.forEach(l => {
+        l.classList.replace('text-[#1C3D2E]', 'text-white');
+        l.classList.replace('hover:text-[#3B55C0]', 'hover:text-white/70');
+      });
+      if (langBtn) {
+        langBtn.classList.replace('text-[#1C3D2E]', 'text-white/80');
+        langBtn.classList.replace('border-[#1C3D2E]/30', 'border-white/40');
+        langBtn.classList.replace('hover:border-[#1C3D2E]', 'hover:border-white');
+      }
+      menuBtn.classList.replace('text-[#1C3D2E]', 'text-white');
+    }
+  }
+
+  window.addEventListener('scroll', () => applyScrolled(window.scrollY > 80), { passive: true });
+
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+</script>

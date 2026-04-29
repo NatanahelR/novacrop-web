@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Hero from '../../components/Hero.astro';
+import Problem from '../../components/Problem.astro';
+import Solution from '../../components/Solution.astro';
+import Benefits from '../../components/Benefits.astro';
+import WhyUs from '../../components/WhyUs.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'es' as const;
+---
+
+<Layout
+  title="NOVACROP — Agricultura bajo riego en Paraguay"
+  lang={lang}
+  description="NOVACROP garantiza producción agrícola estable y predecible usando el Acuífero Yrenda. Menos riesgo climático, mayor rentabilidad."
+>
+  <Navbar lang={lang} />
+  <Hero lang={lang} />
+  <Problem lang={lang} />
+  <Solution lang={lang} />
+  <Benefits lang={lang} />
+  <WhyUs lang={lang} />
+  <Contact lang={lang} />
+  <Footer lang={lang} />
+</Layout>

@@ -1,0 +1,24 @@
+---
+import type { Lang } from '../i18n/index';
+import { t } from '../i18n/index';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-[#0F2419] text-white/60 py-12">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img src="/logo.png" alt="NovaCrop" class="h-8 w-auto opacity-90" />
+        <span class="text-sm text-white/40">{tr.footer.tagline}</span>
+      </div>
+
+      <div class="text-xs text-center md:text-right">
+        <p>{tr.footer.country} — © {year} NOVACROP. {tr.footer.rights}</p>
+      </div>
+    </div>
+  </div>
+</footer>

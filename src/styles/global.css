@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green-dark: #1C3D2E;
+  --color-green-mid: #2D5A3D;
+  --color-green-light: #4A8C5C;
+  --color-blue-nova: #3B55C0;
+  --color-blue-light: #5B75D0;
+  --color-cream: #F7FAF8;
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  background-color: var(--color-cream);
+  color: var(--color-green-dark);
+}
+
+/* AOS custom duration */
+[data-aos] {
+  transition-duration: 700ms !important;
+}
+
+/* Animated field grid */
+@keyframes fieldPulse {
+  0%, 100% { opacity: 0.06; }
+  50% { opacity: 0.12; }
+}
+
+.field-grid {
+  background-image:
+    linear-gradient(var(--color-green-mid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-green-mid) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: fieldPulse 4s ease-in-out infinite;
+}
+
+/* Wave animation */
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.wave-animate {
+  animation: waveMove 12s linear infinite;
+}
+
+/* Counter number */
+.counter-value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Drone parallax */
+.drone-parallax {
+  will-change: transform;
+}
