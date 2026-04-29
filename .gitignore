@@ -27,3 +27,5 @@ public/*.mov
 
 # jetbrains setting folder
 .idea/
+
+.vercel
